@@ -8,7 +8,7 @@ const Card = ( {path, name, price, id, commande}) => {
     return (
         <>
             <div
-                className="bg-transparent rounded-sm w-full px-3 py-2 border"
+                className="bg-transparent rounded-sm w-full px-3 py-2 border shadow-sm"
             >
                 <div
                     className="flex flex-col lg:flex-row p-auto w-full justify-between gap-6 items-start lg:items-center"

@@ -3,16 +3,12 @@ const LoginContainer = () => {
     return (
         <>
             <div
-                className="h-screen flex  justify-center items-center bg-slate-50"
+                className="h-screen flex  justify-center items-center bg-[#b6bf89]"
             >
                 
-                    {/* <div
-                        className="w-[150px] h-[150px] bg-cyan-600 absolute top-0 ml-[218px] mt-[70px]  "
-                        style={{borderRadius: ' 0 6px 0 100%'}}
-                    >
-                    </div> */}
+                    
                     <div
-                        className="p-2 gap-14 w-[27%] flex flex-col  bg-slate-600 rounded-md"
+                        className="p-2 gap-2 w-[27%] flex flex-col  bg-[#edf6bf7e] rounded-md border"
                     >
 
                         <p className="text-white text-lg m-3">Sign in?</p>
@@ -23,14 +19,14 @@ const LoginContainer = () => {
                             <div
                                 className="flex flex-col gap-4"
                             >
-                                <label className="text-sm text-white" htmlFor="perfectMoney">Perfect money account :</label>
-                                <input className=" p-1  rounded-sm bg-slate-50 border-b border-slate-800 outline-none " type="text" placeholder="perfect money" name="perfectMoney" />
+                                <label className="text-sm text-white" htmlFor="perfectMoney">Email :</label>
+                                <input className=" py-2  rounded-sm bg-transparent border-b border-slate-800 outline-none text-sm" type="text" placeholder="your email" name="perfectMoney" />
                             </div>
                             <div
                                 className="flex flex-col gap-4"
                             >
                                 <label className="text-sm text-white" htmlFor="perfectMoney">Password :</label>
-                                <input className=" rounded-sm  p-1 bg-white border-b border-slate-800 outline-none " type="password" placeholder="password" name="password" />
+                                <input className="py-2 text-sm rounded-sm  p-1 bg-transparent border-b border-slate-800 outline-none  " type="password" placeholder="your password" name="password" />
                             </div>
                             <div className="flex flex-row gap-2 justify-between">
 
@@ -47,7 +43,7 @@ const LoginContainer = () => {
                             >
                                 <button
                                     type="submit"
-                                    className="py-1 px-3 bg-slate-900 text-white rounded-md hover:bg-slate-800"
+                                    className="py-1 px-3 bg-green-700 text-white rounded-md hover:bg-green-600"
                                 >
                                     <b>sign in</b>
                                 </button>

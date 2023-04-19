@@ -34,7 +34,9 @@ const NavBar = () => {
                         <section
                             className="border-l-2 border-[#5eb5d7] pl-2 text-slate-800"
                         >
-                            Table 1
+                           <NavLink to='/login'>
+                                Admin
+                           </NavLink>
                         </section>
                     </div>
 

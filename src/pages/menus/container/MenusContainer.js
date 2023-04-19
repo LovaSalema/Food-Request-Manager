@@ -7,10 +7,10 @@ const MenusContainer = () => {
     const [searched,setSearched]=useState([]);
     const [filtered, setFiltered]=useState(menus);
     
-
+    
     useEffect(()=>{
-        setSearched(menus)
-       setFiltered(menus)
+        setSearched(menus);
+        setFiltered(menus);
         const myCommand= filtered.filter((obj)=>{return obj.commande===true});
        setCommand(myCommand);
     },[menus])
@@ -39,9 +39,8 @@ const MenusContainer = () => {
                     return(FoodName.indexOf(term)> -1)
                 }
             )
-            
             setSearched(result);
-        setIsSearching(true);
+            setIsSearching(true);
     }
 
     return (
@@ -93,7 +92,7 @@ const MenusContainer = () => {
                                 </div>
                             </div>
                             <div
-                                className=" flex flex-col h-screen gap-4 overflow-scroll scroll"
+                                className=" flex flex-col h-screen gap-4 overflow-scroll lg:overflow-scroll scroll"
                             >
                                 {isSearching?
                                     (searched.map((item)=>(
