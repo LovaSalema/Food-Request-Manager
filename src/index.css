@@ -8,6 +8,7 @@ body {
   font-family: 'Mulish', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #b6bf89;
 }
 
 code {
