@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useState } from "react"
 const LoginContainer = () => {
+    const [show, setShow]=useState(false)
     return (
         <>
             <div
@@ -8,56 +9,56 @@ const LoginContainer = () => {
                 
                     
                     <div
-                        className="p-2 gap-2 w-[27%] flex flex-col  bg-[#edf6bf7e] rounded-md border"
+                        className="p-2 gap-2 w-[27%] flex flex-col  bg-[#f7f7f690] rounded-md border"
                     >
 
-                        <p className="text-white text-lg m-3">Sign in?</p>
+                        <p className="text-slate-800 font-bold m-3">Se connecter</p>
 
                         <form
-                            className=" p-6 flex flex-col gap-6"
+                            className=" p-6 flex flex-col gap-3"
                         >
                             <div
-                                className="flex flex-col gap-4"
+                                className="flex flex-col gap-2"
                             >
-                                <label className="text-sm text-white" htmlFor="perfectMoney">Email :</label>
-                                <input className=" py-2  rounded-sm bg-transparent border-b border-slate-800 outline-none text-sm" type="text" placeholder="your email" name="perfectMoney" />
+                                <label className="text-sm text-slate-800 font-bold" htmlFor="email">Nom d'utilisateur ou email</label>
+                                <input className=" py-1  rounded-md bg-transparent border  border-slate-400 outline-none text-sm" type="text"  name="perfectMoney" />
                             </div>
                             <div
-                                className="flex flex-col gap-4"
+                                className="flex flex-col gap-2"
                             >
-                                <label className="text-sm text-white" htmlFor="perfectMoney">Password :</label>
-                                <input className="py-2 text-sm rounded-sm  p-1 bg-transparent border-b border-slate-800 outline-none  " type="password" placeholder="your password" name="password" />
+                                <label className="text-sm text-slate-800 font-bold" htmlFor="perfectMoney">Mot de passe</label>
+                                <input className="py-1 text-sm rounded-md  p-1 bg-transparent border border-slate-400 outline-none  " type={show? "text" :"password"}  name="password" />
                             </div>
-                            <div className="flex flex-row gap-2 justify-between">
+                            <div className="flex flex-row gap-2 justify-between mt-2">
 
                                 <a href="#">
-                                    <p className="text-xs text-slate-900 underline"><b>I forgot my password!</b></p>
+                                    <p className="text-xs text-slate-900 underline"><b>Mot de passe oublié?</b></p>
                                 </a>
                                 <div className="flex flex-row-reverse gap-2">
-                                    <input type="checkbox" />
-                                    <p className="text-xs text-white"><b>Show password</b></p>
+                                    <input onClick={()=>setShow(!show)} type="checkbox" />
+                                    <p className="text-xs text-slate-800"></p>
                                 </div>
                             </div>
                             <div
-                                className="flex flex-col gap-4"
+                                className="flex flex-col gap-4 mt-2"
                             >
                                 <button
                                     type="submit"
-                                    className="py-1 px-3 bg-green-700 text-white rounded-md hover:bg-green-600"
+                                    className="py-1 px-3 bg-green-500 text-white rounded-md hover:bg-green-400"
                                 >
                                     <b>sign in</b>
                                 </button>
                                 <button
-                                    className="py-1 px-3 bg-slate-400 text-white rounded-md hover:bg-slate-300"
+                                    className="py-1 px-3 bg-slate-600 text-white rounded-md hover:bg-slate-500"
                                     type="reset"
                                 >
                                     <b>cancel</b>
                                 </button>
                             </div>
-                            <div className="flex flex-row gap-2">
-                                <p className="text-xs text-white">I don't have an account!</p>
+                            <div className="flex flex-row gap-2 mt-2 justify-center">
+                                <p className="text-xs text-slate-800">Voilour collaborer avec nous?</p>
                                 <a href="#">
-                                    <p className="text-xs text-slate-900 underline"><b>sign up?</b></p>
+                                    <p className="text-xs text-slate-900 underline"><b>s'inscrire</b></p>
                                 </a>
                             </div>
 
