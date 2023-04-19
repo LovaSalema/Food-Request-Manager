@@ -3,17 +3,19 @@ import { useGlobalContext } from "../../menus/context/MenuContext";
 import Card from "../../menus/components/Card";
 import { useEffect } from "react";
 const Commands = () => {
-    const {command} = useGlobalContext();
+    const {command, menus, setCommand} = useGlobalContext();
     const [total, setTotal]=useState(0);
 
     useEffect(()=>{
-        console.log(command);
          if(command.length>0){
             const count = command.reduce((accumulator, currentValue)=> {return accumulator + currentValue.price},0 )
             setTotal(count);
         }
        
     },[])
+    useEffect(()=>{
+            
+    },[command])
     const formatPrice= total.toLocaleString('mg-MG', {style: 'currency', currency: 'MGA'})
    
     return (

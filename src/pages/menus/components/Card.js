@@ -2,7 +2,7 @@ import React from "react";
 import { useGlobalContext } from "../context/MenuContext";
 
 const Card = ( {path, name, price, id, commande}) => {
-   const {addCommand}= useGlobalContext();
+   const {addCommand, removeCommand}= useGlobalContext();
     const formatPrice= price.toLocaleString('mg-MG', {style: 'currency', currency: 'MGA'})
    
     return (
@@ -35,7 +35,7 @@ const Card = ( {path, name, price, id, commande}) => {
                         </div>
                     </div>
                     <div
-                        className="flex justify-center items-center"
+                        className="flex flex-col-reverse justify-center items-end gap-4 relative"
                     >
                         <button
                            onClick={()=>{addCommand(id); }}
@@ -45,6 +45,7 @@ const Card = ( {path, name, price, id, commande}) => {
                         >
                            {commande? 'commandé': 'commander'}
                         </button>
+                        {commande? (<button onClick={()=>removeCommand(id)} className="absolute bottom-12">x</button>): <></>}
                     </div>
                 </div>
             </div>

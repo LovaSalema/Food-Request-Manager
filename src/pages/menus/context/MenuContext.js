@@ -27,9 +27,12 @@ const MenuProvider = ({children})=>{
 
    //remove command
     const removeCommand =(id)=>{
-        setCommand(command.filter((menu)=>menu.id !== id));
-        const Index = menus.findIndex((obj)=>obj.id === id);
-        setMenus(menus[Index].commande=false)
+        const newMenus = menus.map((obj=>{
+            return obj.id ===id ? {...obj, commande: false }: obj
+         }))
+        setMenus(newMenus);
+        const myCommand= newMenus.filter((obj)=>{return obj.commande===true});
+       setCommand(myCommand);
     }
     return(
         <MenuContext.Provider
