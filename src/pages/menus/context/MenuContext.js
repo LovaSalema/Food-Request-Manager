@@ -2,20 +2,30 @@ import React from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import useMenuCard from "../hooks/useMenuCard";
+import { useEffect } from "react";
 
 const MenuContext =React.createContext(null);
 
 const MenuProvider = ({children})=>{
     const [menus, setMenus]=useState(useMenuCard());
     const [command, setCommand]=useState([]);
+    const [isSearching, setIsSearching]=useState(false);
 
+    //add Command
     const addCommand = (id)=>{
-         const newMenus= menus.map((obj=>{
+         const newMenus = menus.map((obj=>{
             return obj.id ===id ? {...obj, commande: true }: obj
          }))
-        setMenus(newMenus)
+        setMenus(newMenus);
+        const myCommand= newMenus.filter((obj)=>{return obj.commande===true});
+       setCommand(myCommand);
     }
-   
+    
+    useEffect(()=>{
+       setCommand(command)
+    },[command])
+
+   //remove command
     const removeCommand =(id)=>{
         setCommand(command.filter((menu)=>menu.id !== id));
         const Index = menus.findIndex((obj)=>obj.id === id);
@@ -29,7 +39,9 @@ const MenuProvider = ({children})=>{
                 command,
                 setCommand,
                 addCommand,
-                removeCommand
+                removeCommand,
+                isSearching,
+                setIsSearching
             }}
         >
             {children}

@@ -21,13 +21,13 @@ const NavBar = () => {
                         <ul
                             className="flex flex-row gap-4"
                         >
-                            <NavLink to="/menu">
+                            <NavLink to="/">
                                 Menu
                             </NavLink>
                             <NavLink to='/command'>
                                 Commandes
                             </NavLink>
-                            <NavLink to='/employee'>
+                            <NavLink to='/scantable'>
                                 Scan table
                             </NavLink>
                         </ul>

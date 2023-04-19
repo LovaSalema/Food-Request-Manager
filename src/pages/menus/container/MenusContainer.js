@@ -3,19 +3,24 @@ import '../css/menu.css';
 import Card from "../components/Card";
 import { useGlobalContext } from "../context/MenuContext";
 const MenusContainer = () => {
-    const {menus, setCommand}= useGlobalContext();
-    
+    const {menus, setCommand, isSearching, setIsSearching}= useGlobalContext();
+    const [searched,setSearched]=useState([]);
     const [filtered, setFiltered]=useState(menus);
+    
+
     useEffect(()=>{
-        setFiltered(menus);
-        const myCommand= menus.filter((obj)=>{return obj.commande===true})
-        setCommand(myCommand);
+        setSearched(menus)
+       setFiltered(menus)
+        const myCommand= filtered.filter((obj)=>{return obj.commande===true});
+       setCommand(myCommand);
     },[menus])
+
     const handleOnClick=(e)=>{
         
         if(e==='all'){
             setFiltered(menus)
         }else{
+           
             const result =menus.filter(
                 (menu)=>{
                     return menu.type === e;
@@ -23,8 +28,22 @@ const MenusContainer = () => {
             );
             setFiltered(result);
         }
-        
+        setIsSearching(false)
     }
+   
+    const handleOnChange=(e)=>{
+            let result = filtered.filter(
+                (food)=>{
+                    const FoodName=food.name.toLowerCase();
+                    const term =e.toLowerCase();
+                    return(FoodName.indexOf(term)> -1)
+                }
+            )
+            
+            setSearched(result);
+        setIsSearching(true);
+    }
+
     return (
         <>
             <div
@@ -44,6 +63,8 @@ const MenusContainer = () => {
                                 className="flex flex-row"
                             >
                                 <input
+                                    onChange={(e)=>handleOnChange(e.target.value)}
+                                   
                                     type="text"
                                     className="outline-none border text-md px-2 py-1 mx-2 transparent rounded-sm"
                                     placeholder="Recherche..."
@@ -74,7 +95,8 @@ const MenusContainer = () => {
                             <div
                                 className=" flex flex-col h-screen gap-4 overflow-scroll scroll"
                             >
-                                {filtered.map((item)=>(
+                                {isSearching?
+                                    (searched.map((item)=>(
                                         <Card 
                                             key={item.id}
                                             commande={item.commande}
@@ -82,9 +104,17 @@ const MenusContainer = () => {
                                             name={item.name}
                                             price={item.price}
                                             id={item.id}
-                                        />
-                                    ))
-                               
+                                        />))):
+                                   (filtered.map((item)=>(
+                                    <Card 
+                                        key={item.id}
+                                        commande={item.commande}
+                                        path={item.path} 
+                                        name={item.name}
+                                        price={item.price}
+                                        id={item.id}
+                                    />
+                                )))
                                }
                             </div>
                         </div>

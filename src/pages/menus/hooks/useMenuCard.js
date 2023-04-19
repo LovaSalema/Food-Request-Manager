@@ -9,7 +9,7 @@ const useMenuCard =()=>{
             type:'boisson',
             name:'boisson gazeux',
             path:'./assets/img/kalibg.jpg',
-            price: '2 000Ar',
+            price: 2000,
             commande: false
         },
         {   
@@ -17,7 +17,7 @@ const useMenuCard =()=>{
             type:'snacks',
             name:'snacks',
             path:'./assets/img/kali3.jpg',
-            price: '3 000Ar',
+            price: 3000,
             commande: false
         },
         {   
@@ -25,7 +25,7 @@ const useMenuCard =()=>{
             type:'boisson',
             name:'Jus naturel',
             path:'./assets/img/kalibg.jpg',
-            price: '8 000Ar',
+            price: 8000,
             commande: false
         },
         {   
@@ -33,7 +33,7 @@ const useMenuCard =()=>{
             type:'snacks',
             name:'snacks',
             path:'./assets/img/kali3.jpg',
-            price: '5 000Ar',
+            price: 5000,
             commande: false
         },
         {   
@@ -41,7 +41,7 @@ const useMenuCard =()=>{
             type:'spaghetti',
             name:'spaghetti',
             path:'./assets/img/kali2.jpg',
-            price: '8 000Ar',
+            price: 8000,
             commande: false
         },
         {
@@ -49,7 +49,7 @@ const useMenuCard =()=>{
             type:'soupe',
             name:'soupe',
             path:'./assets/img/kali1.jpg',
-            price: '6 000Ar',
+            price: 6000,
             commande: false
         },
         {
@@ -57,7 +57,7 @@ const useMenuCard =()=>{
             type:'soupe',
             name:'soupe',
             path:'./assets/img/kali1.jpg',
-            price: '7 000Ar',
+            price: 7000,
             commande: false
         }
     ];

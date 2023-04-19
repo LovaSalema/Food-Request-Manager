@@ -3,6 +3,7 @@ import { useGlobalContext } from "../context/MenuContext";
 
 const Card = ( {path, name, price, id, commande}) => {
    const {addCommand}= useGlobalContext();
+    const formatPrice= price.toLocaleString('mg-MG', {style: 'currency', currency: 'MGA'})
    
     return (
         <>
@@ -28,7 +29,7 @@ const Card = ( {path, name, price, id, commande}) => {
 
                             >
                                 <b>
-                                    {price}
+                                    {formatPrice}
                                 </b>
                             </p>
                         </div>
@@ -37,7 +38,7 @@ const Card = ( {path, name, price, id, commande}) => {
                         className="flex justify-center items-center"
                     >
                         <button
-                           onClick={()=>addCommand(id)}
+                           onClick={()=>{addCommand(id); }}
                             type="button"
                             className={ commande? "bg-green-700 px-3 py-2 rounded-sm text-white font-bold text-sm lg:text-md" 
                             : "bg-slate-800 px-3 py-2 rounded-sm text-white font-bold text-sm lg:text-md"}

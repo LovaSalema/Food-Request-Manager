@@ -6,6 +6,7 @@ import MainLayout from './pages/layout/container/MainLayout';
 
 import MenusContainer from "./pages/menus/container/MenusContainer"
 import Commands from './pages/commands/containers/Commands';
+import ScanTable from './pages/tableManager/container/ScanTable';
 
 // const Menu = React.lazy(()=>import('./pages/menus/container/MenusContainer'))
 
@@ -17,10 +18,11 @@ function App() {
           path='/' 
           element={<MainLayout/>}
       >
-        <Route path='menu' element={<MenusContainer/>}/>
+        <Route path='/' element={<MenusContainer/>}/>
         
         <Route path='employee' element={ <TableEmployee/>}/>
-        <Route path='command' element={<Commands/>}></Route>
+        <Route path='command' element={<Commands/>}/>
+        <Route path='scantable' element={<ScanTable/>}/>
       </Route>
           
       
