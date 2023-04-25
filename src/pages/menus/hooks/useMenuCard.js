@@ -1,9 +1,6 @@
-
-
+import { useState } from "react";
 const useMenuCard =()=>{
-  
-    
-    return [
+    let myData=[
         {   
             id:1,
             type:'boisson',
@@ -61,5 +58,9 @@ const useMenuCard =()=>{
             commande: false
         }
     ];
+  const [DataObject, setDataobject]=useState(myData);
+  
+    
+    return DataObject;
 }
 export default useMenuCard;

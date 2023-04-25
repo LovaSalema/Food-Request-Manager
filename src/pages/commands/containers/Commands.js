@@ -1,23 +1,44 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useGlobalContext } from "../../menus/context/MenuContext";
 import Card from "../../menus/components/Card";
 import { useEffect } from "react";
 const Commands = () => {
-    const {command, menus, setCommand} = useGlobalContext();
-    const [total, setTotal]=useState(0);
+    const { command } = useGlobalContext();
+    const [items, setItems]=useState(command);
+    const [total, setTotal] = useState(0);
+    
 
-    useEffect(()=>{
-         if(command.length>0){
-            const count = command.reduce((accumulator, currentValue)=> {return accumulator + currentValue.price},0 )
+    useEffect(() => {
+        if (command.length > 0) {
+            const count = command.reduce((accumulator, currentValue) => { return accumulator + currentValue.price }, 0)
             setTotal(count);
         }
-       
-    },[])
-    useEffect(()=>{
-            
-    },[command])
-    const formatPrice= total.toLocaleString('mg-MG', {style: 'currency', currency: 'MGA'})
-   
+
+    }, [command])
+    useEffect(() => {
+        setItems(command)
+    }, [command])
+    const formatPrice = total.toLocaleString('mg-MG', { style: 'currency', currency: 'MGA' })
+
+    const handleDragStart=(e, index)=>{
+        e.dataTransfer.setData('text/plain', index);
+        
+    }
+ 
+    const handleDragOver =(e,index)=>{
+        e.preventDefault();
+    }
+    const handleDrop=(e, index)=>{
+        const dragIndex = e.dataTransfer.getData('text/plain');
+        const newItems=[...items];
+        const draggedItem = newItems[dragIndex];
+
+        newItems.splice(dragIndex,1);
+        newItems.splice(index, 0, draggedItem);
+
+        setItems(newItems)
+
+    }
     return (
         <>
 
@@ -40,15 +61,23 @@ const Commands = () => {
                                 className=" flex flex-col gap-4 overflow-scroll scroll"
                             >
                                 {command?.length > 0 ?
-                                    (command.map((item) => (
-                                        <Card
-                                            key={item.id}
-                                            commande={item.commande}
-                                            path={item.path}
-                                            name={item.name}
-                                            price={item.price}
-                                            id={item.id}
-                                        />
+                                    (items.map((item, index) => (
+                                        <div
+                                            draggable
+                                            onDragStart={(e)=>handleDragStart(e, index)}
+                                            onDragOver={(e)=>handleDragOver(e,index)}
+                                            onDrop={(e)=>handleDrop(e, index)}
+                                        >
+                                            <Card
+                                                key={item.id}
+                                                commande={item.commande}
+                                                path={item.path}
+                                                name={item.name}
+                                                price={item.price}
+                                                id={item.id}
+                                                client={true}
+                                            />
+                                        </div>
 
                                     ))) : (
                                         <p

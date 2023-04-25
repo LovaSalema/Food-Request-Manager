@@ -1,22 +1,14 @@
-import React, {useState, useEffect} from "react";
-import '../css/menu.css';
-import Card from "../components/Card";
+import React from "react";
+import { useState } from "react";
 import { useGlobalContext } from "../context/MenuContext";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-const MenusContainer = () => {
-    const {menus, setCommand, isSearching, setIsSearching}= useGlobalContext();
-    const [searched,setSearched]=useState([]);
-    const [filtered, setFiltered]=useState(menus);
-    
-    
-    useEffect(()=>{
-        setSearched(menus);
-        setFiltered(menus);
-        const myCommand= filtered.filter((obj)=>{return obj.commande===true});
-       setCommand(myCommand);
-    },[menus])
+import Card from "../components/Card";
+import ModalMenu from "../components/ModalMenu";
 
+const MenuAdmin =()=>{
+    const {menus, setIsSearching}= useGlobalContext();
+    const [filtered, setFiltered]=useState(menus);
+    const [searched,setSearched]=useState([]);
+    
     const handleOnClick=(e)=>{
         
         if(e==='all'){
@@ -32,46 +24,50 @@ const MenusContainer = () => {
         }
         setIsSearching(false)
     }
-   
     const handleOnChange=(e)=>{
-            let result = filtered.filter(
-                (food)=>{
-                    const FoodName=food.name.toLowerCase();
-                    const term =e.toLowerCase();
-                    return(FoodName.indexOf(term)> -1)
-                }
-            )
-            setSearched(result);
-            setIsSearching(true);
-    }
-    const icon =()=>{
-        return  (<FontAwesomeIcon icon={faMagnifyingGlass} className="text-slate-800 absolute "/>);
-    }
+        let result = filtered.filter(
+            (food)=>{
+                const FoodName=food.name.toLowerCase();
+                const term =e.toLowerCase();
+                return(FoodName.indexOf(term)> -1)
+            }
+        )
+        setSearched(result);
+        setIsSearching(true);
+}
+    const [revealModale, setRevealModal]=useState(false);
     return (
         <>
-            <div
+             
+            <div 
                 className=" flex h-auto w-full bg-[#b6bf89] p-auto justify-center"
             >
                 <div
-                    className="mt-0 mb-0 bg-white/200 w-full flex justify-center"
+                    className="mt-0 mb-0 bg-white/200 w-full flex flex-col items-center justify-center relative"
                 >
-
+                        <div
+                            className=" mt-6"
+                        >
+                            <button
+                            onClick={()=>setRevealModal(true)}
+                            className=" bg-teal-600 text-white font-bold px-4 py-2 rounded-md">Ajouter nouveau menu</button>
+                        </div>
+                        <ModalMenu show={revealModale} handleModale={setRevealModal}/>
                     <div
-                        className=" mt-20 mb-10 w-[35%] h-auto  transparent rounded-md m-auto p-3 flex flex-col"
+                        className=" mt-10 mb-10 w-[35%] h-auto  transparent rounded-md m-auto p-3 flex flex-col"
                     >
                         <div
                             className="flex flex-col gap-3"
                         >
                             <div
-                                className="flex flex-row relative"
+                                className="flex flex-row"
                             >
-                              
                                 <input
                                     onChange={(e)=>handleOnChange(e.target.value)}
                                    
                                     type="text"
                                     className="outline-none border text-md px-2 py-1 mx-2 transparent rounded-sm"
-                                    placeholder={ "Recherche..."}
+                                    placeholder="Recherche..."
                                 />
                                 <div>
 
@@ -99,18 +95,7 @@ const MenusContainer = () => {
                             <div
                                 className=" flex flex-col h-screen gap-4 overflow-scroll lg:overflow-scroll scroll"
                             >
-                                {isSearching?
-                                    (searched.map((item)=>(
-                                        <Card 
-                                            key={item.id}
-                                            commande={item.commande}
-                                            path={item.path} 
-                                            name={item.name}
-                                            price={item.price}
-                                            id={item.id}
-                                            client={true}
-                                        />))):
-                                   (filtered.map((item)=>(
+                             {   filtered.map((item)=>(
                                     <Card 
                                         key={item.id}
                                         commande={item.commande}
@@ -118,17 +103,15 @@ const MenusContainer = () => {
                                         name={item.name}
                                         price={item.price}
                                         id={item.id}
-                                        client={true}
-                                    />
-                                )))
-                               }
+                                        client={false}
+                                    />))}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+       
         </>
     )
 }
-export default MenusContainer;
+export default MenuAdmin;

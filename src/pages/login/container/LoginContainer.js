@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 const LoginContainer = () => {
-    const [show, setShow]=useState(false)
+    const [show, setShow]=useState(true)
     return (
         <>
             <div
@@ -27,11 +27,11 @@ const LoginContainer = () => {
                                 className="flex flex-col gap-2"
                             >
                                 <label className="text-sm text-slate-800 font-bold" htmlFor="perfectMoney">Mot de passe</label>
-                                <input className="py-1 text-sm rounded-md  p-1 bg-transparent border border-slate-400 outline-none  " type={show? "text" :"password"}  name="password" />
+                                <input className="py-1 text-sm rounded-md  p-1 bg-transparent border border-slate-400 outline-none  " type={show? "password":"text" }  name="password" />
                             </div>
                             <div className="flex flex-row gap-2 justify-between mt-2">
 
-                                <a href="#">
+                                <a href="www.facebook.com">
                                     <p className="text-xs text-slate-900 underline"><b>Mot de passe oublié?</b></p>
                                 </a>
                                 <div className="flex flex-row-reverse gap-2">
@@ -57,7 +57,7 @@ const LoginContainer = () => {
                             </div>
                             <div className="flex flex-row gap-2 mt-2 justify-center">
                                 <p className="text-xs text-slate-800">Voilour collaborer avec nous?</p>
-                                <a href="#">
+                                <a href="www.google.com">
                                     <p className="text-xs text-slate-900 underline"><b>s'inscrire</b></p>
                                 </a>
                             </div>

@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useGlobalContext } from "../../menus/context/MenuContext";
 const NavBar = () => {
+    const {command}=useGlobalContext();
     return (
         <>
             <nav
@@ -24,8 +26,11 @@ const NavBar = () => {
                             <NavLink to="/">
                                 Menu
                             </NavLink>
-                            <NavLink to='/command'>
+                            <NavLink className='flex flex-row gap-1' to='/command'>
                                 Commandes
+                                {command.length>0? <div className="w-5 h-5 rounded-full bg-red-600 text-center text-white font-bold text-sm">
+                                    {command.length}
+                                </div> : ''}
                             </NavLink>
                             <NavLink to='/scantable'>
                                 Scan table

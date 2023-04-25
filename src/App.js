@@ -8,6 +8,7 @@ import MenusContainer from "./pages/menus/container/MenusContainer"
 import Commands from './pages/commands/containers/Commands';
 import ScanTable from './pages/tableManager/container/ScanTable';
 import LoginContainer from './pages/login/container/LoginContainer';
+import MenuAdmin from './pages/menus/container/MenuAdmin';
 
 // const Menu = React.lazy(()=>import('./pages/menus/container/MenusContainer'))
 
@@ -25,6 +26,7 @@ function App() {
         <Route path='command' element={<Commands/>}/>
         <Route path='scantable' element={<ScanTable/>}/>
         <Route path='login' element={<LoginContainer/>}/>
+        <Route path='menu-admin' element={<MenuAdmin/>}/>
       </Route>
           
       

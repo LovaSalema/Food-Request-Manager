@@ -10,7 +10,8 @@ const MenuProvider = ({children})=>{
     const [menus, setMenus]=useState(useMenuCard());
     const [command, setCommand]=useState([]);
     const [isSearching, setIsSearching]=useState(false);
-
+    const [food, setFood]=useState([]);
+    
     //add Command
     const addCommand = (id)=>{
          const newMenus = menus.map((obj=>{
@@ -44,7 +45,9 @@ const MenuProvider = ({children})=>{
                 addCommand,
                 removeCommand,
                 isSearching,
-                setIsSearching
+                setIsSearching,
+                food,
+                setFood
             }}
         >
             {children}
