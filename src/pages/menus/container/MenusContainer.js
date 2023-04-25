@@ -2,8 +2,7 @@ import React, {useState, useEffect} from "react";
 import '../css/menu.css';
 import Card from "../components/Card";
 import { useGlobalContext } from "../context/MenuContext";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+
 const MenusContainer = () => {
     const {menus, setCommand, isSearching, setIsSearching}= useGlobalContext();
     const [searched,setSearched]=useState([]);
@@ -44,9 +43,7 @@ const MenusContainer = () => {
             setSearched(result);
             setIsSearching(true);
     }
-    const icon =()=>{
-        return  (<FontAwesomeIcon icon={faMagnifyingGlass} className="text-slate-800 absolute "/>);
-    }
+    
     return (
         <>
             <div

@@ -12,13 +12,13 @@ const Card = ( {path, name, price, id, commande, client}) => {
     return (
         <>
             <div
-                className={`bg-transparent rounded-sm w-full px-3 py-2 border shadow-sm`}
+                className={`bg-slate-100 rounded-sm lg:w-full px-3 py-2 border shadow-sm`}
             >
                 <div
                     className="flex flex-col lg:flex-row p-auto w-full justify-between gap-6 items-start lg:items-center"
                 >
                     <div 
-                        className="flex flex-row gap-4 justify-between"
+                        className="flex flex-col lg:flex-row gap-4 justify-between"
                     >
                         <img className="w-[150px] " src={path} alt='card_img' />
                         <div
@@ -41,7 +41,7 @@ const Card = ( {path, name, price, id, commande, client}) => {
                         </div>
                     </div>
                     <div
-                        className="flex flex-col-reverse justify-center items-end gap-4 relative"
+                        className="flex flex-row lg:flex-col-reverse justify-center items-center lg:items-end gap-6 lg:gap-4 relative mt-3 lg:mt-1"
                     >
                         {client?
                         (<button
@@ -52,7 +52,7 @@ const Card = ( {path, name, price, id, commande, client}) => {
                          >
                             {commande? 'commandé': 'commander'}
                          </button>):(<></>)}
-                        {commande? (<button onClick={()=>removeCommand(id)} className="absolute bottom-12"><FontAwesomeIcon icon="rectangle-xmark"/></button>): <></>}
+                        {commande? (<button onClick={()=>removeCommand(id)} className="lg:absolute bottom-12"><FontAwesomeIcon icon="rectangle-xmark"/></button>): <></>}
                     </div>
                 </div>
             </div>
