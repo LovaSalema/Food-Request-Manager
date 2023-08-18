@@ -8,7 +8,6 @@ const MenusContainer = () => {
     const [searched,setSearched]=useState([]);
     const [filtered, setFiltered]=useState(menus);
     
-    
     useEffect(()=>{
         setSearched(menus);
         setFiltered(menus);
@@ -47,7 +46,7 @@ const MenusContainer = () => {
     return (
         <>
             <div
-                className=" flex h-auto w-full bg-[#b6bf89] p-auto justify-center"
+                className=" flex h-auto w-full bg-[#C0E6BA] p-auto justify-center"
             >
                 <div
                     className="mt-0 mb-0 bg-white/200 w-full flex justify-center"
@@ -67,8 +66,8 @@ const MenusContainer = () => {
                                     onChange={(e)=>handleOnChange(e.target.value)}
                                    
                                     type="text"
-                                    className="outline-none border text-md px-2 py-1 mx-2 transparent rounded-sm"
-                                    placeholder={ "Recherche..."}
+                                    className="outline-none border text-sm lg:text-md lg:px-2 py-1 mx-2 transparent rounded-sm max-w-md"
+                                    placeholder="Recherche..."
                                 />
                                 <div>
 

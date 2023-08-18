@@ -1,7 +1,6 @@
-const ScanTable =()=>{
+const ScanTable=()=>{
     return(
         <>
-        
         <div
                 className=" flex h-screen w-full bg-[#b6bf89]  "
             >

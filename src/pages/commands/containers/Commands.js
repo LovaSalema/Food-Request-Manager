@@ -7,7 +7,6 @@ const Commands = () => {
     const [items, setItems]=useState(command);
     const [total, setTotal] = useState(0);
     
-
     useEffect(() => {
         if (command.length > 0) {
             const count = command.reduce((accumulator, currentValue) => { return accumulator + currentValue.price }, 0)

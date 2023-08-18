@@ -10,7 +10,7 @@ import ScanTable from './pages/tableManager/container/ScanTable';
 import LoginContainer from './pages/login/container/LoginContainer';
 import MenuAdmin from './pages/menus/container/MenuAdmin';
 
-// const Menu = React.lazy(()=>import('./pages/menus/container/MenusContainer'))
+
 
 function App() {
  

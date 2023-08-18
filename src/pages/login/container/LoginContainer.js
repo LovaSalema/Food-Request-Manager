@@ -4,12 +4,12 @@ const LoginContainer = () => {
     return (
         <>
             <div
-                className="h-screen flex  justify-center items-center bg-[#b6bf89]"
+                className="h-screen flex  justify-center items-center bg-[#c0e6ba]"
             >
                 
                     
                     <div
-                        className="p-2 gap-2 w-[27%] flex flex-col  bg-[#f7f7f690] rounded-md border"
+                        className="p-2 gap-2 w-[27%] flex flex-col  bg-[#eaf9e7] rounded-md border"
                     >
 
                         <p className="text-slate-800 font-bold m-3">Se connecter</p>
@@ -46,13 +46,13 @@ const LoginContainer = () => {
                                     type="submit"
                                     className="py-1 px-3 bg-green-500 text-white rounded-md hover:bg-green-400"
                                 >
-                                    <b>sign in</b>
+                                    <b>Se connecter</b>
                                 </button>
                                 <button
                                     className="py-1 px-3 bg-slate-600 text-white rounded-md hover:bg-slate-500"
                                     type="reset"
                                 >
-                                    <b>cancel</b>
+                                    <b>Annuler</b>
                                 </button>
                             </div>
                             <div className="flex flex-row gap-2 mt-2 justify-center">
