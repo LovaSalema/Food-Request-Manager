@@ -13,7 +13,7 @@ import MenuAdmin from './pages/menus/container/MenuAdmin';
 
 
 function App() {
- 
+
   return (
     <Routes>
       <Route
@@ -21,7 +21,6 @@ function App() {
           element={<MainLayout/>}
       >
         <Route path='/' element={<MenusContainer/>}/>
-        
         <Route path='employee' element={ <TableEmployee/>}/>
         <Route path='command' element={<Commands/>}/>
         <Route path='scantable' element={<ScanTable/>}/>
